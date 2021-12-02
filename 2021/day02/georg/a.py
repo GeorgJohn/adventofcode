@@ -1,5 +1,4 @@
-from enum import Enum
-from typing import Any, List, Tuple
+from typing import Callable, List, Tuple
 
 
 # State indices
@@ -20,20 +19,14 @@ def down(state: List[int], cmd: int) -> None:
     state[DEP] += cmd
 
 
-class Commands(Enum):
-    FORWARD = forward
-    UP = up
-    DOWN = down
-
-
 command_dict = {
-    'forward': Commands.FORWARD,
-    'up': Commands.UP,
-    'down': Commands.DOWN,
+    'forward': forward,
+    'up': up,
+    'down': down,
 }
 
 
-def get_obs(line: str) -> Tuple[Any, int]:
+def get_obs(line: str) -> Tuple[Callable[[List[int], int], None], int]:
 
     obs = line.rstrip().split(' ')
 
@@ -52,6 +45,8 @@ def main(fn: str) -> None:
 
         for line in fp:
             comand, value = get_obs(line)
+
+            print(type(comand))
 
             comand(state, value)
 
