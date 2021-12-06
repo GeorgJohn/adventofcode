@@ -14,24 +14,27 @@ def parse(puzzle_input):
     return data
 
 
-def part1(data):
+def part1(data, skip):
     """ Solve part 1 """
-    return 0
+    if skip:
+        return 0
 
-def part2(data):
+
+def part2(data, skip):
     """ Solve part 2 """
-    return 0
+    if skip:
+       return 0
 
 
 def solve(puzzle_input):
     """ Solve puzzle """
     puzzle_data = parse(puzzle_input)
     
-    # print list line by line
+    # print list - line by line
     # print('\n'.join(str(line) for line in puzzle_data))
 
-    solution1 = part1(puzzle_data)
-    solution2 = part2(puzzle_data)
+    solution1 = part1(puzzle_data, skip=True)
+    solution2 = part2(puzzle_data, skip=True)
 
     return solution1, solution2
 
