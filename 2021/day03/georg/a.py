@@ -1,10 +1,9 @@
 import numpy as np
 
 
-
-def line2bit_array(line):
-    # convert string in numpy array seperated by character 
-    return np.array([int(number) for number in line.strip()])
+def line2bit_array(line: str) -> np.ndarray: 
+    # convert string in numpy array seperated by character
+    return np.array([int(number) for number in line.strip()], dtype=np.float32)
 
 
 # Main function
