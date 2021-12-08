@@ -27,51 +27,22 @@ def part2(data, skip):
     if skip:
        return 0
 
-    # expand_positions = []
-    
-    # for position in data:
-    #     exp_pos = 0
-    #     for n in range(position):
-    #         exp_pos += 1 * (n+1)
-
-    #     expand_positions.append(exp_pos)
-    
-    # median = round(np.median(expand_positions))
-
-  
-    # print(sorted(expand_positions))
-    # print(median)
-    
-    lowest_fuel = np.inf
-    lowest_fuel_idx = 0
-
-    for median in range(0, 1000):
-
-        expand_positions = []
-        
+    fuels = []
+    max_pos = max(data)
+    for align_pos in range(0, max_pos):
+        costs = []
         for position in data:
-            exp_pos = 0
-            for n in range(abs(position - median)):
-                exp_pos += 1 * (n+1)
+            diff = abs(position - align_pos)
+            cost = (diff ** 2 + diff) // 2  # small Gauss
+            costs.append(cost)
+        fuels.append(sum(costs))
 
-            expand_positions.append(exp_pos)
-        
-        fuel = np.sum(expand_positions)
-
-        if fuel < lowest_fuel:
-            lowest_fuel = fuel
-            lowest_fuel_idx = median
-
-    print(lowest_fuel_idx)
-    return lowest_fuel
+    return min(fuels)
 
 
 def solve(puzzle_input):
     """ Solve puzzle """
     puzzle_data = parse(puzzle_input)
-    
-    # print list - line by line
-    # print('\n'.join(str(line) for line in puzzle_data))
 
     solution1 = part1(puzzle_data, skip=False)
     solution2 = part2(puzzle_data, skip=False)
