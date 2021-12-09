@@ -48,7 +48,7 @@ if __name__ == '__main__':
             print(f'\n{path}:')
             puzzle_input = pathlib.Path(path).read_text().strip()
 
-            print('Advent of Code 2021 - Day xx')
+            print('Advent of Code 2021 - Day 10')
             solutions = solve(puzzle_input)
             for n, s in enumerate(solutions):
                 print(f'The puzzle solution of part {n+1} is: {s}')
