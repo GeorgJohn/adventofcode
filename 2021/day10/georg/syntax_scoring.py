@@ -1,4 +1,3 @@
-from ctypes import LittleEndianStructure
 import sys
 import pathlib
 
@@ -75,7 +74,6 @@ def parse(puzzle_input):
     """ Parse text input in data array. """
     data = []
     for line in puzzle_input.split('\n'):
-        # Get only the character with numbers and convert in a list of interger.
         chunk_line = [char for char in line.strip()]
         if len(chunk_line) > 0:
             data.append(chunk_line)
@@ -130,10 +128,8 @@ def part2(data, skip):
 def solve(puzzle_input):
     """ Solve puzzle """
     puzzle_data = parse(puzzle_input)
-    
     solution1 = part1(puzzle_data, skip=False)
     solution2 = part2(puzzle_data, skip=False)
-
     return solution1, solution2
 
 
