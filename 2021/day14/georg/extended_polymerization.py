@@ -90,6 +90,8 @@ def part2(data, skip):
         counter_elements[rule] = 0
         rule_tracker_template[key] = 0
 
+    print(rules)
+
     n_steps = 40
 
     for idx in range(len(polymer_template) - 1):
